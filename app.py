@@ -3,12 +3,14 @@ from os import getenv
 import uuid, json, requests
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
 
 
 credential = DefaultAzureCredential()
 
 
-client = SecretClient(vault_url=getenv(str("dsjnfns")), credential=credential)
+client = SecretClient(vault_url=getenv(str("VAULT_URL")), credential=credential)
 
 
 
